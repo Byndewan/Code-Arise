@@ -5,15 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Code Arise - Master IT Skills</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
-        body { font-family: Arial, sans-serif; margin: 0; padding: 0; box-sizing: border-box; }
-        header { background: #0a0a23; color: white; padding: 10px 0; position: fixed; width: 100%; top: 0; z-index: 1000; }
-        nav ul { list-style: none; padding: 0; display: flex; justify-content: center; gap: 30px; }
-        nav ul li a { color: white; text-decoration: none; font-weight: bold; }
+        * {margin: 0; padding: 0; box-sizing: border-box; font-family: 'Raleway', sans-serif; }
+        body { font-family: 'Raleway', sans-serif; margin: 0; padding: 0; box-sizing: border-box; }
         .hero-section {display: flex; align-items: center; justify-content: space-between; padding: 100px 20px 160px; background: linear-gradient(130deg, #F9F871, #B54228, #DA6854, #F29551, #FDC657, #872657); color: #fff; position: relative;}
         .hero-section .container { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; }
-        .hero-section h1 { color: #0a0a23; font-size: 3em; margin-bottom: 10px; }
-        .hero-section p { color: #333; margin-bottom: 20px; }
+        .hero-section h1 { color: #fff; font-size: 4em; margin-bottom: 10px; }
         .hero-section img { max-width: 50%; border-radius: 10px; }
         .features { background: #fff; padding: 50px 20px; text-align: center; }
         .features h2 { color: #0a0a23; }
@@ -23,9 +21,160 @@
         .popular-courses h2, .testimonials h2, .cta-section h2 { color: #0a0a23; }
         footer { background: #0a0a23; color: white; padding: 20px; }
 
-        .feature-item:hover {
-            transform: translateY(-10px);
+        /* Header Styling */
+        #main-header {
+            width: 100%;
+            position: fixed;
+            top: 0;
+            z-index: 1000;
+            background: transparent;
+            transition: background 0.3s;
+            padding: 15px 50px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
         }
+
+        .nav-left {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        /* Logo */
+        .nav-left .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: white;
+        }
+
+        /* Navigation */
+        nav {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .nav-center {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+
+        /* Dropdown */
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-toggle {
+            color: white;
+            text-decoration: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            background: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+            padding: 10px 0;
+            top: 100%;
+            left: 0;
+            z-index: 10;
+        }
+
+        .dropdown-menu li {
+            list-style: none;
+        }
+
+        .dropdown-menu a {
+            display: block;
+            padding: 8px 20px;
+            color: #333;
+            text-decoration: none;
+        }
+
+        .dropdown-menu a:hover {
+            background: #f5f5f5;
+        }
+
+        /* Animasi Panah */
+        .arrow-icon {
+            transition: transform 0.3s ease;
+        }
+
+        .arrow-icon.rotate {
+            transform: rotate(180deg);
+        }
+
+
+        /* Search Box */
+        .search-box {
+            display: flex;
+            align-items: center;
+            background: white;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        .search-box input {
+            border: none;
+            padding: 5px 10px;
+            outline: none;
+            width: 200px;
+        }
+
+        .search-box button {
+            background: #872657;
+            border: none;
+            color: white;
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+
+        /* Authentication Buttons */
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .nav-left li,
+        .dropdown-menu li {
+            list-style: none;
+        }
+
+        .nav-right .sign-in,
+        .nav-right .sign-up {
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+            padding: 5px 15px;
+            border-radius: 20px;
+            transition: background 0.3s, color 0.3s, transform 0.3s ease;
+        }
+
+        .nav-right .sign-in:hover {
+            background: rgba(255, 255, 255, 09);
+            color: #872657;
+            transform: scale(1.1);
+        }
+
+        .nav-right .sign-up {
+            background: #872657;
+            color: white;
+        }
+
+        .nav-right .sign-up:hover {
+            background: #fff;
+            color: #872657;
+        }
+
 
         .icon {
             font-size: 40px;
@@ -35,45 +184,50 @@
 
         .floating-features .icon {
             font-size: 30px; /* Mengecilkan ukuran icon */
-            margin-bottom: 5px;
+            margin: 0 10px 0 10px; 
         }
 
         .all-product-link {
             text-decoration: none;
             color: inherit;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .floating-features h3 {
             font-size: 16px; /* Mengecilkan ukuran teks */
         }
-
+        
         .all-product-link:hover h3 {
-            color: #256D85;
+            text-decoration: wavy underline;
+            color: #872657;
         }
         .floating-features {
             display: flex;
-            justify-content: space-around;
             position: absolute;
             bottom: -50px;
             width: 80%;
             left: 50%;
             transform: translateX(-50%);
             z-index: 2;
+            background-color: #f2f2f2;
+            padding: 15px 30px 5px 30px;
+            border-radius: 10px;
         }
 
         .floating-features .feature-item {
-            background: #fff;
-            color: #333;
-            padding: 10px; /* Lebih kecil dari sebelumnya */
+            border: solid 2px #872657;
+            background: #f2f2f2;
+            color: #000;
+            padding: 10px;
             border-radius: 10px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            width: 18%; /* Ukuran lebih kecil */
-            text-align: center;
-            transition: transform 0.3s ease;
-        }
-
-        .floating-features .feature-item:hover {
-            transform: translateY(-10px);
+            width: 100%; /* Ukuran lebih kecil */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0 5px 0 5px;
         }
 
         .features {
@@ -92,15 +246,9 @@
             gap: 20px;
         }
         .feature-item {
-            background: white;
             padding: 20px;
             border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             width: 28%;
-            transition: transform 0.3s ease;
-        }
-        .feature-item:hover {
-            transform: translateY(-10px);
         }
         .feature-item i {
             font-size: 2.5em;
@@ -108,118 +256,179 @@
             margin-bottom: 10px;
         }
         .feature-item h3 {
-            color: #0a0a23;
+            color: #222;
         }
         .feature-item p {
             color: #555;
         }
         .popular-courses {
-            background: #f4f4f9;
-            padding: 50px 20px;
             text-align: center;
+            padding: 30px;
         }
         .course-cards {
             display: flex;
+            gap: 15px;
             justify-content: center;
-            gap: 20px;
-            flex-wrap: wrap;
         }
         .course-card {
             background: white;
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            overflow: hidden;
-            width: 300px;
-            transition: transform 0.3s ease;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
+            width: 280px;
+            height: 100%;
+            padding: 0;
+            position: relative;
+            text-align: left;
+            transition: transform 0.3s;
+        }
+        .course-card:hover {
+            transform: translateY(-5px);
+        }
+        .promo-label {
+            background: #ff5722;
+            color: white;
+            padding: 3px 10px;
+            font-size: 0.8em;
+            border-radius: 5px;
+            position: absolute;
+            top: 10px;
+            left: 10px;
         }
         .course-card img {
             width: 100%;
-            height: auto;
+            height: 20em;
+            border-radius: 15px 15px 0 0;
+            margin-bottom: 10px;
         }
-        .course-card h3 {
-            color: #0a0a23;
-            margin: 10px 0;
+        .old-price {
+            text-decoration: line-through;
+            color: #ff5722;
+            font-size: 0.9em;
+            padding: 0px 20px 0px 20px;
         }
-        .course-card p {
-            color: #555;
-            padding: 0 10px;
+        .discount-price {
+            color: #222;
+            font-size: 1.5em;
+            font-weight: bold;
+            padding: 0px 20px 0px 20px;
         }
-        .course-card .btn {
-            display: inline-block;
-            margin: 10px;
-            padding: 8px 15px;
-            background: #2575fc;
+        .discount-price span {
+            font-size: 0.8em;
+            color: #777;
+        }
+        .buy-package {
+            display: block;
+            text-align: center;
+            padding: 8px 20px;
+            background: #872657;
             color: white;
             text-decoration: none;
-            border-radius: 5px;
-            transition: background 0.3s ease;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: background 0.3s;
         }
-        .course-card .btn:hover {
-            background: #1a5bbd;
+        .buy-package:hover {
+            background: #B54228;
         }
-        .course-card:hover {
-            transform: translateY(-10px);
+        .course-details {
+            font-size: 0.9em;
+            margin: 15px 10px 0px 35px;
+        }
+        .course-details li {
+            margin-bottom: 15px;
+        }
+        .course-title {
+            padding: 0px 20px 0px 20px;
+            margin-bottom: 10px;
+        }
+        .detail-link {
+            display: block;
+            text-align: center;
+            color: #872657;
+            text-decoration: none;
+            font-size: 0.9em;
+            margin-top: 20px;
+            transition: color 0.3s;
+            padding: 5px 0px 20px 0px;
+        }
+        .detail-link:hover {
+            text-decoration: wavy underline;
+            color: #888;
+        }
+        .all-courses {
+            background: #e0f7fa;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            padding: 50px 20px;
+            height: auto;
+        }
+        .all-courses h3 {
+            color: #872657;
+            font-size: 1.2em;
+            margin-bottom: 10px;
+        }
+        .all-courses-link {
+            color: #872657;
+            font-size: 4em;
+            transition: 0.3s ease;
+        }
+        .all-courses-link:hover {
+            color: #B54228;
+            font-size: 5em;
+            transform: scale(1.1);
+        }
+        .buy-link {
+            padding: 10px 20px 0px 20px;
         }
 
-        .course-card {
-    position: relative;
-    overflow: hidden;
-}
-.buy-course-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: rgba(0, 0, 0, 0.5);
-    opacity: 0;
-    transition: opacity 0.3s ease;
-}
-.course-card:hover .buy-course-overlay {
-    opacity: 1;
-}
-.buy-course-btn {
-    background: #ff9800;
-    color: white;
-    padding: 10px 20px;
-    border-radius: 5px;
-    text-decoration: none;
-    font-weight: bold;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    transition: background 0.3s ease;
-}
-.buy-course-btn:hover {
-    background: #e68900;
-}
+        .sub-title {
+            margin: 20px;
+        }
+
+
 
     </style>
 </head>
 <body>
-    <header>
+    <header id="main-header">
         <nav>
-            <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Courses</a></li>
-                <li><a href="#">About</a></li>
-                <li><a href="#">Contact</a></li>
-            </ul>
+            <div class="nav-left">
+                <div class="logo">CodeArise</div>
+                <li class="search-box">
+                    <input type="text" placeholder="Search courses...">
+                    <button><i class="fas fa-search"></i></button>
+                </li>
+                <li class="dropdown">
+                    <a class="dropdown-toggle" onclick="toggleDropdown()">
+                        Explore <i class="fas fa-angle-down arrow-icon"></i>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">Adventure</a></li>
+                        <li><a href="#">Luxury</a></li>
+                        <li><a href="#">Beach</a></li>
+                        <li><a href="#">City</a></li>
+                        <li><a href="#">Nature</a></li>
+                    </ul>
+                </li>
+            </div>
+            <!-- <ul class="nav-center">
+                
+            </ul> -->
+            <div class="nav-right">
+                <a href="#" class="sign-in">Sign In</a>
+                <a href="#" class="sign-up">Sign Up</a>
+            </div>
         </nav>
     </header>
+    
+    
     
     <section class="hero-section">
         <div class="container">
             <div>
                 <h1>Master IT Skills & Launch Your Career!</h1>
-                <p>Take the next step with Code Arise</p>
-                <a href="#" class="btn btn-dark">Join for Free</a>
             </div>
             <img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjN8fGVkdWNhdGlvbnxlbnwwfHwwfHx8MA%3D%3D" width="450" alt="Hero Image">
         </div>
@@ -268,48 +477,108 @@
 
     <section class="popular-courses">
         <h2>Popular Courses</h2>
-        <p>Explore our most popular courses and start learning today!</p>
+        <p class="sub-title">Explore our most popular courses and start learning today!</p>
         <div class="course-cards">
+            <!-- Card 1 -->
             <div class="course-card">
-                <img src="https://images.unsplash.com/photo-1546410531-bb4caa6b424d?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fGVkdWNhdGlvbnxlbnwwfHwwfHx8MA%3D%3D" alt="Course Image">
-                <div class="buy-course-overlay">
-                    <a href="#" class="buy-course-btn">Buy Course</a>
-                    <a href="#" class="btn btn-dark">Learn More</a>
+                <div class="promo-label">Diskon 50%</div>
+                <img src="https://images.unsplash.com/photo-1532012197267-da84d127e765?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8ZWR1Y2F0aW9ufGVufDB8fDB8fHww" alt="Course Image">
+                <h3 class="course-title">Video belajar dan latihan soal Tes Skolastik</h3>
+                <p class="old-price">Rp 900.000</p>
+                <p class="discount-price">Rp 54.083 <span>/bulan</span></p>
+                <div class="buy-link">
+                    <a href="#" class="btn buy-package">Beli Paket</a>
                 </div>
-                <h3>Mobile App Development</h3>
-                <p>Create apps for Android and iOS platforms.</p>
+                <ul class="course-details">
+                    <li><i class="fas fa-check-circle"></i> Peluang 3x lebih besar masuk kampus impian</li>
+                    <li><i class="fas fa-check-circle"></i> Hingga 20x tryout UTBK/SNBT</li>
+                </ul>
+                <a href="#" class="detail-link">Lihat Detail</a>
             </div>
+    
+            <!-- Card 2 -->
             <div class="course-card">
-                <img src="https://images.unsplash.com/photo-1546410531-bb4caa6b424d?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fGVkdWNhdGlvbnxlbnwwfHwwfHx8MA%3D%3D" alt="Course Image">
-                <div class="buy-course-overlay">
-                    <a href="#" class="buy-course-btn">Buy Course</a>
-                    <a href="#" class="btn btn-dark">Learn More</a>
+                <div class="promo-label">Fasilitas Lengkap</div>
+                <img src="https://images.unsplash.com/photo-1532012197267-da84d127e765?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8ZWR1Y2F0aW9ufGVufDB8fDB8fHww" alt="Course Image">
+                <h3 class="course-title">Kelas tatap muka + video belajar dan latihan soal</h3>
+                <p class="old-price">Rp 1.076.923</p>
+                <p class="discount-price">Rp 280.000 <span>/bulan</span></p>
+                <div class="buy-link">
+                    <a href="#" class="btn buy-package">Beli Paket</a>
                 </div>
-                <h3>Mobile App Development</h3>
-                <p>Create apps for Android and iOS platforms.</p>
+                <ul class="course-details">
+                    <li><i class="fas fa-star"></i> 4.8/5 rating kelas</li>
+                    <li><i class="fas fa-check-circle"></i> Belajar intensif persiapan PTS dan PAS</li>
+                </ul>
+                <a href="#" class="detail-link">Lihat Detail</a>
             </div>
+    
+            <!-- Card 3 -->
             <div class="course-card">
-                <img src="https://images.unsplash.com/photo-1546410531-bb4caa6b424d?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fGVkdWNhdGlvbnxlbnwwfHwwfHx8MA%3D%3D" alt="Course Image">
-                <div class="buy-course-overlay">
-                    <a href="#" class="buy-course-btn">Buy Course</a>
-                    <a href="#" class="btn btn-dark">Learn More</a>
+                <div class="promo-label">Live Teaching</div>
+                <img src="https://images.unsplash.com/photo-1532012197267-da84d127e765?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8ZWR1Y2F0aW9ufGVufDB8fDB8fHww" alt="Course Image">
+                <h3 class="course-title">Live Teaching interaktif + konsultasi PR</h3>
+                <p class="old-price">Rp 5.616.000</p>
+                <p class="discount-price">Rp 562.000 <span>/bulan</span></p>
+                <div class="buy-link">
+                    <a href="#" class="btn buy-package">Beli Paket</a>
                 </div>
-                <h3>Mobile App Development</h3>
-                <p>Create apps for Android and iOS platforms.</p>
+                <ul class="course-details">
+                    <li><i class="fas fa-check-circle"></i> Sesi pertemuan online 10x seminggu</li>
+                    <li><i class="fas fa-check-circle"></i> Live Teaching terbaik pilihan orang tua</li>
+                </ul>
+                <a href="#" class="detail-link">Lihat Detail</a>
             </div>
-            
-            
-            <div class="course-card">
-                <a class="btn btn-outline-dark"><i class="fas fa-plus-circle"></i></a>
-                <h3 >Explore All Courses</h3>
-                <p>Discover more topics and expand your skills.</p>
-                <a href="#" class="btn btn-dark"><i class="fas fa-arrow-right"></i></a>
+    
+            <!-- Card All Courses -->
+            <div class="course-card all-courses">
+                <h3>Lihat semua paket belajar</h3>
+                <a href="#" class="all-courses-link">
+                    <i class="fas fa-arrow-right"></i>
+                </a>
             </div>
         </div>
     </section>
+    
+    
 
     <footer>
         <p>&copy; 2025 Code Arise. All Rights Reserved.</p>
     </footer>
+
+    <script>
+    /* Sticky Header on Scroll */
+    window.addEventListener('scroll', function() {
+        const header = document.getElementById('main-header');
+        if (window.scrollY > 50) {
+            header.style.background = '#0a0a23';
+        } else {
+            header.style.background = 'transparent';
+        }
+    });
+
+    // Toggle Dropdown saat di-klik
+    function toggleDropdown() {
+        const dropdownMenu = document.querySelector('.dropdown-menu');
+        const arrowIcon = document.querySelector('.arrow-icon');
+
+        // Tampilkan atau sembunyikan dropdown
+        dropdownMenu.style.display = dropdownMenu.style.display === 'block' ? 'none' : 'block';
+
+        // Tambahkan atau hapus kelas untuk rotasi
+        arrowIcon.classList.toggle('rotate');
+    }
+
+    // Tutup Dropdown saat klik di luar
+    window.onclick = function(event) {
+        const dropdown = document.querySelector('.dropdown');
+        if (!dropdown.contains(event.target)) {
+            document.querySelector('.dropdown-menu').style.display = 'none';
+            document.querySelector('.arrow-icon').classList.remove('rotate');
+        }
+    };
+
+
+    </script>
 </body>
 </html>
